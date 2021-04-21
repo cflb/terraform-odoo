@@ -36,6 +36,9 @@ resource "digitalocean_droplet" "OdooServer" {
   ssh_keys = [ 
       data.digitalocean_ssh_key.do-sshkey-name.id
    ]
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 output "ip_do_droplet" {
