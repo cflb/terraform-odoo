@@ -26,8 +26,8 @@ terraform {
 }
 
 # Define Resources
-# OdooServer
-resource "digitalocean_droplet" "odooServer" {
+# An Odoo Application will be installed: OdooServer
+resource "digitalocean_droplet" "OdooServer" {
   image = "ubuntu-20-04-x64"
   name = "odooServer-01"
   region = "nyc1"
