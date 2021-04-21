@@ -12,8 +12,8 @@ provider "digitalocean" {
 }
 
 # Get ssh key in digitalocean account
-data "digitalocean_ssh_key" "terraform" {
-  name = "terraform"
+data "digitalocean_ssh_key" "do-sshkey-name" {
+    name = "do-sshkey-name"
 }
 
 # Define DigitalOcean provider
@@ -34,6 +34,10 @@ resource "digitalocean_droplet" "OdooServer" {
   size = "s-1vcpu-1gb"
   private_networking = true
   ssh_keys = [ 
-      data.digitalocean_ssh_key.terraform.id
+      data.digitalocean_ssh_key.do-sshkey-name.id
    ]
+}
+
+output "ip_do_droplet" {
+  value = digitalocean_droplet.OdooServer.ipv4_address
 }
