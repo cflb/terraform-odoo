@@ -1,1 +1,1 @@
-do_token = "INSERT YOUT TOKEN HERE"
+do_token = "7008247da5448dfda437bbb7cc6d93c01fc431a14bdcdd618209942e515dcf09"
