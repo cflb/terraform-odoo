@@ -4,7 +4,7 @@
 
 # Define token and ssh key vars
 variable "do_token" {}
-variable "pvt_key" {}
+# variable "pvt_key" {}
 
 # provider digitalocean - set token - get $ENV_VARS
 provider "digitalocean" {
@@ -36,8 +36,12 @@ resource "digitalocean_droplet" "OdooServer" {
   ssh_keys = [ 
       data.digitalocean_ssh_key.do-sshkey-name.id
    ]
+
   lifecycle {
     create_before_destroy = true
+    ignore_changes = [
+      ssh_keys,
+    ]
   }
 }
 
