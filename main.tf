@@ -33,17 +33,17 @@ resource "digitalocean_droplet" "OdooServer" {
     data.digitalocean_ssh_key.do-sshkey-name.id
   ]
 
-  provisioner "remote-exec" {
-
-    inline = ["apt update", "sudo apt install python3 -y", "echo Done!"]
-
-    connection {
-      type        = "ssh"
-      user        = "root"
-      host        = self.ipv4_address
-      private_key  = var.pvt_key
-    }
-  }
+#  provisioner "remote-exec" {
+#
+#    inline = ["apt update", "sudo apt install python3 -y", "echo Done!"]
+#
+#    connection {
+#      type        = "ssh"
+#      user        = "root"
+#      host        = self.ipv4_address
+#      private_key  = var.pvt_key
+#    }
+#  }
 
   lifecycle {
     create_before_destroy = true
